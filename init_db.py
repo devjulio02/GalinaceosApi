@@ -1,4 +1,5 @@
 import psycopg2
+from helpers.application import app 
 from helpers.enviroment import enviroment
 from helpers.logger import logger
 
