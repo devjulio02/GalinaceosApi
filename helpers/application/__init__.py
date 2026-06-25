@@ -1,4 +1,9 @@
 from flask import Flask
+from dotenv import load_dotenv
+from helpers.cors import cors
 
-# Inicializa a instância principal da aplicação
 app = Flask(__name__)
+cors.init_app(app)
+
+# Carrega as variáveis do .env
+load_dotenv()

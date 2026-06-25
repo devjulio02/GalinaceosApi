@@ -2,20 +2,16 @@ import psycopg2
 from flask import g
 from helpers.application import app
 from helpers.enviroment import enviroment
-from helpers.logger import logger
-
-DATABASE_NAME = enviroment.get("DB_NAME")
-DATABASE_USER = enviroment.get("DB_USER")
-DATABASE_PASS = enviroment.get("DB_PASSWORD")
-DATABASE_PORT = enviroment.get("DB_PORT")
-DATABASE_HOST = enviroment.get("DB_HOST")
 
 def get_conn():
     conn = getattr(g, '_database', None)
     if conn is None:
         conn = g._database = psycopg2.connect(
-            database=DATABASE_NAME, user=DATABASE_USER, password=DATABASE_PASS, 
-            host=DATABASE_HOST, port=DATABASE_PORT
+            database=enviroment.get("DB_NAME"),
+            user=enviroment.get("DB_USER"),
+            password=enviroment.get("DB_PASSWORD"),
+            host=enviroment.get("DB_HOST"),
+            port=enviroment.get("DB_PORT")
         )
     return conn
 
