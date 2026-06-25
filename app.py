@@ -7,5 +7,4 @@ app.register_blueprint(galinaceos_bp)
 
 if __name__ == '__main__':
     logger.info("Iniciando a GalinaceosApi...")
-    # Executa o servidor na porta 5000
     app.run(host='0.0.0.0', port=5000, debug=True)
